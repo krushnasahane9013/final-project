@@ -1,0 +1,51 @@
+<div class="bg" style="margin-top: 300px;">
+    <div class="parent">
+      <div class="child">
+        <h1 class="form-title">Update Teacher</h1>
+        <form class="login-form" [formGroup]="validationForm">
+  
+          <div class="form-field">
+            <label>Name</label>
+            <input type="text" placeholder="Name" formControlName="name" />
+            <div *ngIf="validationForm.get('name')?.hasError('required')" class="error-message">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Qualification</label>
+            <input type="text" placeholder="Qualification" formControlName="qualification" />
+            <div *ngIf="validationForm.get('qualification')?.hasError('required')" class="error-message">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Department</label>
+            <input type="text" placeholder="Department" formControlName="department" />
+            <div *ngIf="validationForm.get('department')?.hasError('required')" class="error-message">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Date of Birth</label>
+            <input [matDatepicker]="picker" placeholder="Choose a Date" formControlName="dateOfBirth" />
+            <div *ngIf="validationForm.get('dateOfBirth')?.hasError('required')" class="error-message">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Address</label>
+            <textarea placeholder="Address" formControlName="address"></textarea>
+            <div *ngIf="validationForm.get('address')?.hasError('required')" class="error-message">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Gender</label>
+            <select placeholder="Select a Gender" formControlName="gender">
+              <option *ngFor="let gender of GENDER" [value]="gender">{{gender}}</option>
+            </select>
+            <div *ngIf="validationForm.get('gender')?.hasError('required')" class="error-message">This Input is required!</div>
+          </div>
+  
+          <button mat-raised-button color="primary" (click)="updateTeacher()">Update Teacher</button>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

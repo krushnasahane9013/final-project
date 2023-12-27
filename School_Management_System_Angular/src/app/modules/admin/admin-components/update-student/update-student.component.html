@@ -1,0 +1,67 @@
+<div class="bg" style="margin-top: 300px;">
+    <div *ngIf="isSpinning" class="spinner"></div>
+    <div class="parent">
+      <div class="child">
+        <h1 class="form-title">Update Student</h1>
+        <form class="login-form" (submit)="updateStudent()">
+  
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="Enter Email" [(ngModel)]="email" name="email" required />
+            <div class="error-message" *ngIf="!email">This Input is required!</div>
+            <div class="error-message" *ngIf="email && !isValidEmail(email)">Please enter a valid email address.</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Name</label>
+            <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required />
+            <div class="error-message" *ngIf="!name">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Father Name</label>
+            <input type="text" placeholder="Father Name" [(ngModel)]="fathername" name="fathername" required />
+            <div class="error-message" *ngIf="!fathername">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Mother Name</label>
+            <input type="text" placeholder="Mother Name" [(ngModel)]="mothername" name="mothername" required />
+            <div class="error-message" *ngIf="!mothername">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Student Class</label>
+            <select [(ngModel)]="studentClass" name="studentClass" required>
+              <option *ngFor="let class of CLASS" [value]="class">{{class}}</option>
+            </select>
+            <div class="error-message" *ngIf="!studentClass">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Date of Birth</label>
+            <input type="date" [(ngModel)]="dateOfBirth" name="dateOfBirth" required />
+            <div class="error-message" *ngIf="!dateOfBirth">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Address</label>
+            <textarea placeholder="Address" [(ngModel)]="address" name="address" required></textarea>
+            <div class="error-message" *ngIf="!address">This Input is required!</div>
+          </div>
+  
+          <div class="form-field">
+            <label>Gender</label>
+            <select [(ngModel)]="gender" name="gender" required>
+              <option *ngFor="let gender of GENDER" [value]="gender">{{gender}}</option>
+            </select>
+            <div class="error-message" *ngIf="!gender">This Input is required!</div>
+          </div>
+  
+          <button (click)="updateStudent()" [disabled]="!email || !name || !fathername || !mothername || !studentClass || !dateOfBirth || !address || !gender" class="primary-button">Update Student</button>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

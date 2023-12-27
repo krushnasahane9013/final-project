@@ -1,0 +1,38 @@
+<div class="bg">
+    <div *ngIf="isSpinning" class="spinner"></div>
+    <div class="parent">
+        <div class="child">
+            <h1 class="form-title">Pay Fee</h1>
+            <form class="login-form" (submit)="payFee()">
+                    
+                <div class="form-field">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" name="amount" placeholder="Amount" [(ngModel)]="amount" required />
+                    <div class="error-message" *ngIf="!amount">This Input is Required!</div>
+                </div> 
+
+                <div class="form-field">
+                    <label for="month">Month</label>
+                    <select id="month" name="month" [(ngModel)]="selectedMonth" required>
+                        <option *ngFor="let month of months" >{{ month }}</option>
+                    </select>
+                    <div class="error-message" *ngIf="!selectedMonth">This Input is Required!</div>
+                </div>  
+                
+                <div class="form-field">
+                    <label for="givenBy">Given By</label>
+                    <input type="text" id="givenBy" name="givenBy" placeholder="Given By" [(ngModel)]="givenBy" required />
+                    <div class="error-message" *ngIf="!givenBy">This Input is Required!</div>
+                </div>  
+
+                <div class="form-field">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="Description" [(ngModel)]="description"></textarea>
+                    <div class="error-message" *ngIf="!description">This Input is Required!</div>
+                </div>  
+
+                <button (click)="payFee()" [disabled]="!amount || !months || !givenBy" class="primary-button">Pay</button>
+            </form>
+        </div>
+    </div>
+</div>

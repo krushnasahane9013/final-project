@@ -1,0 +1,30 @@
+<div class="card-container">
+  <div class="student-card" style="display: flex; flex-direction: row; gap: 16px;">
+    <!-- Leave Card -->
+    <div class="leave-card" *ngFor="let leave of leaves">
+      <div class="card-header" style="background-color: blue; color: white;">
+        <div class="card-title"><strong>{{leave.name}}</strong></div>
+        <div class="card-subtitle">Class: <strong>{{leave.studentClass}}</strong></div>
+      </div>
+
+      <div class="card-content" style="margin-top: 10px;">
+        <p>Subject: <strong>{{ leave.subject }}</strong></p>
+        <p>Body: <strong>{{ leave.body }}</strong></p>
+        <p>Date: <strong>{{ leave.date | date: 'MMM d, yyyy' }}</strong></p>
+        <p>Status: <strong [ngStyle]="{
+          'color': leave.studentLeaveStatus === 'APPROVED' ? 'green' :
+                   leave.studentLeaveStatus === 'DISAPPROVED' ? 'blue' : 'red'
+        }">{{ leave.studentLeaveStatus }}</strong></p>
+      </div>
+
+      <div class="card-actions">
+        <!-- ... other HTML code ... -->
+        <button class="action-button" (click)="changeLeaveStatus(leave.id, 'Approve')">Approve</button>
+        <button class="action-button" (click)="changeLeaveStatus(leave.id, 'Reject')">Reject</button>
+        <!-- ... other HTML code ... -->
+
+      </div>
+    </div>
+    <!-- End Leave Card -->
+  </div>
+</div>

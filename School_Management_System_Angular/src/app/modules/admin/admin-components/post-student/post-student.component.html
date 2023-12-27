@@ -1,0 +1,103 @@
+<div class="bg" style="margin-top: 300px;">
+    <div *ngIf="isSpinning" class="spinner"></div>
+    <div class="parent">
+        <div class="child">
+            <h1 class="form-title">Post Student</h1>
+            <form class="login-form" (submit)="postStudent()" [formGroup]="validationForm">
+
+                <div class="form-field">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter Email" formControlName="email" required />
+                    <div class="error-message" *ngIf="!validationForm.get('email').value">This Input is required!</div>
+                    <div class="error-message" *ngIf="validationForm.get('email').value && !isValidEmail(validationForm.get('email').value)">Please enter a valid email address.</div>
+                </div>
+
+                <div class="form-field">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" formControlName="password" required />
+                    <div class="error-message" *ngIf="!validationForm.get('password').value">This Input is required!</div>
+                </div>
+
+                <div class="form-field">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Confirm Password" formControlName="checkPassword" required />
+                    <div class="error-message" *ngIf="!validationForm.get('checkPassword').value">This Input is required!</div>
+                    <div class="error-message" *ngIf="validationForm.get('checkPassword').value && validationForm.get('password').value !== validationForm.get('checkPassword').value">
+                        Two passwords that you enter are inconsistent!!
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Name</label>
+                    <input type="text" placeholder="Name" formControlName="name" />
+                    <div *ngIf="validationForm.get('name')?.hasError('required')" class="error-message">This Input is required!</div>
+                </div>
+
+                <div class="form-field">
+                    <label>Father Name</label>
+                    <input type="text" placeholder="Father Name" formControlName="fathername" />
+                    <div *ngIf="validationForm.get('fathername')?.hasError('required')" class="error-message">This Input is required!</div>
+                </div>
+
+                <div class="form-field">
+                    <label>Mother Name</label>
+                    <input type="text" placeholder="Mother Name" formControlName="mothername" />
+                    <div *ngIf="validationForm.get('mothername')?.hasError('required')" class="error-message">This Input is required!</div>
+                </div>
+
+                <div class="form-field">
+                    <label>Student Class</label>
+                    <select placeholder="Student Class" formControlName="studentClass">
+                        <option *ngFor="let class of CLASS" [value]="class">{{ class }}</option>
+                    </select>
+                    <div class="error-message" *ngIf="validationForm.get('studentClass')?.hasError('required')">This Input is required!</div>
+                </div>
+
+                <div class="form-field">
+                    <label>Date of Birth</label>
+                    <input [matDatepicker]="picker" placeholder="Choose a Date" formControlName="dateOfBirth" />
+                    <div *ngIf="validationForm.get('dateOfBirth')?.hasError('required')" class="error-message">This Input is required!</div>
+                  </div>
+          
+
+                <div class="form-field">
+                    <label>Address</label>
+                    <textarea placeholder="Address" formControlName="address"></textarea>
+                    <div class="error-message" *ngIf="validationForm.get('address')?.hasError('required')">This Input is required!</div>
+                </div>
+
+                <div class="form-field">
+                    <label>Gender</label>
+                    <select placeholder="Select a Gender" formControlName="gender">
+                        <option *ngFor="let gender of GENDER" [value]="gender">{{gender}}</option>
+                    </select>
+                    <div class="error-message" *ngIf="validationForm.get('gender')?.hasError('required')">This Input is required!</div>
+                </div>
+
+                <button (click)="postStudent()" class="primary-button">Add Student</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+         
+       

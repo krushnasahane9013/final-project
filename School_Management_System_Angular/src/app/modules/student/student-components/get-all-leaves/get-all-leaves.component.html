@@ -1,0 +1,15 @@
+<div class="card-container">
+  <div *ngFor="let leave of leaves" class="student-card">
+      <div style="margin-top: 10px;">
+          <p>Subject: <strong>{{ leave.subject }}</strong></p>
+          <p>Body: <strong>{{ leave.body }}</strong></p>
+          <p>Date: <strong>{{ leave.date | date: 'MMM d, yyyy' }}</strong></p>
+          <p>Status:
+              <strong [ngStyle]="{
+                'color': leave.studentLeaveStatus === 'APPROVED' ? 'green' :
+                         leave.studentLeaveStatus === 'DISAPPROVED' ? 'blue' : 'red'
+              }">{{ leave.studentLeaveStatus }}</strong>
+          </p>
+      </div>
+  </div>
+</div>

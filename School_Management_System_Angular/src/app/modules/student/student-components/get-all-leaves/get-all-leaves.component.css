@@ -1,0 +1,48 @@
+/* Reset some default styles */
+body, h1, h2, p, strong, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Style the card container */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  /* Style the individual leave cards */
+  .student-card {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    width: 300px;
+  }
+  
+  /* Style leave card details */
+  .student-card p {
+    margin-bottom: 10px;
+  }
+  
+  /* Style the leave status based on the status color */
+  .student-card strong {
+    font-size: 1.1em;
+  }
+  
+  /* Apply different colors based on leave status */
+  .student-card strong[ngStyle] {
+    color: green; /* Default color for APPROVED status */
+  }
+  
+  .student-card strong[ngStyle='blue'] {
+    color: blue;
+  }
+  
+  .student-card strong[ngStyle='red'] {
+    color: red;
+  }
+  

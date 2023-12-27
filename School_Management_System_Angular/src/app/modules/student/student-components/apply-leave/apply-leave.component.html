@@ -1,0 +1,21 @@
+<div class="bg" style="margin-top: 80px;">
+  <div *ngIf="isSpinning" class="spinner" style="width: 50px; height: 50px;"></div>
+  <div class="parent">
+      <div class="child">
+          <h1 class="form-title">Leave</h1>
+          <form class="login-form" (ngSubmit)="applyLeave()" [formGroup]="validationForm">
+
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" placeholder="Subject" formControlName="subject" />
+              <div class="error-message" *ngIf="validationForm.get('subject')?.hasError('required')">This field is required!</div>
+
+              <label for="body">Body</label>
+              <textarea id="body" placeholder="Body" formControlName="body"></textarea>
+              <div class="error-message" *ngIf="validationForm.get('body')?.hasError('required')">This field is required!</div>
+
+              <button (click)="applyLeave()">Submit</button>
+
+          </form>
+      </div>
+  </div>
+</div>

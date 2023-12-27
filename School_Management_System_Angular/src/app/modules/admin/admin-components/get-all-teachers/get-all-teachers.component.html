@@ -1,0 +1,23 @@
+<div class="card-container">
+    <!-- Teacher Cards -->
+    <div class="teacher-card" *ngFor="let teacher of teachers">
+      <div class="custom-header">
+        <div class="card-title"><strong>{{ teacher.name }}</strong></div>
+      </div>
+  
+      <div class="card-content" style="margin-top: 10px;">
+        <p>Department: <strong>{{ teacher.department }}</strong></p>
+        <p>Qualification: <strong>{{ teacher.qualification }}</strong></p>
+        <p>Date of Birth: <strong>{{ teacher.dob | date:'MMM dd, yyyy' }}</strong></p>
+        <p>Gender: <strong>{{ teacher.gender }}</strong></p>
+        <p>Address: <strong>{{ teacher.address }}</strong></p>
+      </div>
+  
+      <div class="card-actions">
+        <button class="action-button" (click)="navigateToUpdate('/admin/teacher', teacher.id)">Update</button>
+        <button class="action-button1" (click)="deleteTeacher(teacher.id)">Delete</button>
+      </div>
+    </div>
+    <!-- End Teacher Cards -->
+  </div>
+  

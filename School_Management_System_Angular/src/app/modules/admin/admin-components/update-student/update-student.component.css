@@ -1,0 +1,69 @@
+.bg {
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.spinner {
+  /* Add your spinner styling here */
+}
+
+.parent {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.child {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-title {
+  text-align: center;
+  color: #333;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #d9534f;
+  margin-top: 5px;
+  font-size: 12px;
+}

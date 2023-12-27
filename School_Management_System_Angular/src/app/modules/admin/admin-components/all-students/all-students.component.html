@@ -1,0 +1,28 @@
+<div class="card-container">
+  <div class="student-card" *ngFor="let student of students">
+    <!-- Student Card -->
+    <div class="custom-header">
+      <div class="card-title">Name: <strong>{{ student.name }}</strong></div>
+      <div class="card-subtitle">Class: {{ student.studentClass }}</div>
+    </div>
+
+    <div class="card-content" style="margin-top: 10px;">
+      <p>Email: <strong>{{student.email}}</strong></p>
+      <p>Father Name: <strong>{{student.fathername}}</strong></p>
+      <p>Mother Name: <strong>{{student.mothername}}</strong></p>
+      <p>Date of Birth: <strong>{{student.dob | date:'MMM dd, yyyy' }}</strong></p>
+      <p>Gender: <strong>{{student.gender}}</strong></p>
+      <p>Address: <strong>{{student.address}}</strong></p>
+    </div>
+
+    <div class="card-actions">
+      <button class="action-buttonfee" (click)="navigateToFee('/admin/fee/' + student.id)">Fee</button>
+      <button class="action-buttonupdate" (click)="navigateToUpdate('/admin/student/' + student.id)">Update</button>
+      <!-- Assuming deleteStudent doesn't need navigation -->
+      <button class="action-buttondel" (click)="deleteStudent(student.id)">Delete</button>
+    </div>
+    
+    
+    <!-- End Student Card -->
+  </div>
+</div>
